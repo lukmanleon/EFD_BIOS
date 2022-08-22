@@ -1,9 +1,8 @@
 package com.emilfreydigital.bios.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.sun.istack.NotNull;
+
+import javax.persistence.*;
 
 @Entity
 @Table(schema = "company", name = "team")
@@ -11,19 +10,21 @@ public class Team {
 
     @Id
     @Column(name = "id")
-    Integer Id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long Id;
 
     @Column(name = "code")
+    @NotNull
     String Code;
 
     @Column(name = "description")
     String Description;
 
-    public Integer getId() {
+    public Long getId() {
         return Id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         Id = id;
     }
 
