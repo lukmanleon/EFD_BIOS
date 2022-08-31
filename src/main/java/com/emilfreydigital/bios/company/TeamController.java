@@ -1,4 +1,4 @@
-package com.emilfreydigital.bios.team;
+package com.emilfreydigital.bios.company;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -8,44 +8,46 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
+@RequestMapping("api/v1/bios/teams")
 public class TeamController {
 
     @Autowired
     TeamService teamService;
 
-    @RequestMapping(value = "/teams", method = RequestMethod.GET)
+    @GetMapping
     public List<Team> team() {
         return teamService.getAll();
     }
 
-    @RequestMapping(value = "/team/{id}", method = RequestMethod.GET)
+    @GetMapping(value = "/{id}")
     public Team getTeamById(@PathVariable(value = "id") Long id) {
         return teamService.getTeamById(id);
     }
 
-    @RequestMapping(value = "/team/code/{code}", method = RequestMethod.GET)
+    @GetMapping(value = "/code/{code}")
     public Team getTeamByCode(@PathVariable(value = "code") String teamCode) {
         return teamService.getTeamByCode(teamCode);
     }
 
-    @RequestMapping(value = "/team/name/{name}", method = RequestMethod.GET)
+    @GetMapping(value = "/name/{name}")
     public Team getTeamByName(@PathVariable(value = "name") String teamName) {
         return teamService.getTeamByName(teamName);
     }
 
-    @RequestMapping(value = "/team/create", method = RequestMethod.POST)
+    @PostMapping(value = "/create")
     public Team createTeam(@Valid @RequestBody Team teamEntity) {
         return teamService.createTeam(teamEntity);
     }
 
-    @RequestMapping(value = "/teams/delete/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<Object> deleteTeam(@PathVariable(value = "id") Long id) {
-        return teamService.deleteTeam(id);
-    }
-
-    @RequestMapping(value = "/teams/update/{id}", method = RequestMethod.PUT)
+    @PutMapping(value = "/update/{id}")
     public Team updateSample(@PathVariable(value = "id") Long id,
                              @Valid @RequestBody Team sampleEntity) {
         return teamService.updateTeam(id, sampleEntity);
     }
+
+    @DeleteMapping(value = "/delete/{id}")
+    public ResponseEntity<Object> deleteTeam(@PathVariable(value = "id") Long id) {
+        return teamService.deleteTeam(id);
+    }
+
 }

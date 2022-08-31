@@ -1,4 +1,4 @@
-package com.emilfreydigital.bios.team;
+package com.emilfreydigital.bios.company;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,14 +14,14 @@ import java.util.Optional;
 public class TeamService {
 
     @Autowired
-    TeamDAO teamDAO;
+    TeamRepository teamRepository;
 
     public List<Team> getAll() {
-        return (List<Team>) teamDAO.findAll();
+        return (List<Team>) teamRepository.findAll();
     }
 
     public Team getTeamById(Long Id) {
-        Optional<Team> searchedTeam = teamDAO.findById(Id);
+        Optional<Team> searchedTeam = teamRepository.findById(Id);
         if (!searchedTeam.isPresent()) {
             throw new EntityNotFoundException();
         }
@@ -28,7 +29,7 @@ public class TeamService {
     }
 
     public Team getTeamByCode(String teamCode) {
-        Optional<Team> searchedTeam = teamDAO.getTeamByCode(teamCode);
+        Optional<Team> searchedTeam = teamRepository.getTeamByCode(teamCode);
         if (!searchedTeam.isPresent()) {
             throw new EntityNotFoundException();
         }
@@ -36,7 +37,7 @@ public class TeamService {
     }
 
     public Team getTeamByName(String teamName) {
-        Optional<Team> searchedTeam = teamDAO.getTeamByName(teamName);
+        Optional<Team> searchedTeam = teamRepository.getTeamByName(teamName);
         if (!searchedTeam.isPresent()) {
             throw new EntityNotFoundException();
         }
@@ -51,27 +52,29 @@ public class TeamService {
 
         Optional<Team> searchedTeam = null;
         if (!(newTeam.getCode() == null)) {
-            searchedTeam = teamDAO.getTeamByCode(newTeam.getCode());
+            searchedTeam = teamRepository.getTeamByCode(newTeam.getCode());
         }
 
         if (!searchedTeam.isPresent() && !(newTeam.getName() == null)) {
-            searchedTeam = teamDAO.getTeamByName(newTeam.getName());
+            searchedTeam = teamRepository.getTeamByName(newTeam.getName());
         }
 
         if (searchedTeam.isPresent()) {
-            throw new DuplicateKeyException("Such a team already exsists.");
+            throw new DuplicateKeyException("Such a team already exists.");
         }
-        return teamDAO.save(newTeam);
+        return teamRepository.save(newTeam);
     }
 
     public Team updateTeam(Long Id, Team team) {
         Team updatedTeam;
-        Optional<Team> searchTeam = teamDAO.findById(Id);
+        Optional<Team> searchTeam = teamRepository.findById(Id);
         if (searchTeam.isPresent()) {
             Team sample = searchTeam.get();
             sample.setCode(team.getCode());
+            sample.setName(team.getName());
             sample.setDescription(team.getDescription());
-            updatedTeam = teamDAO.save(sample);
+            sample.setDateModified(LocalDateTime.now());
+            updatedTeam = teamRepository.save(sample);
         } else {
             throw new EntityNotFoundException();
         }
@@ -79,10 +82,10 @@ public class TeamService {
     }
 
     public ResponseEntity<Object> deleteTeam(Long Id) {
-        Optional<Team> sampleEntity = teamDAO.findById(Id);
+        Optional<Team> sampleEntity = teamRepository.findById(Id);
         if (sampleEntity.isPresent()) {
             Team sample = sampleEntity.get();
-            teamDAO.delete(sample);
+            teamRepository.delete(sample);
         } else {
             throw new EntityNotFoundException();
         }
