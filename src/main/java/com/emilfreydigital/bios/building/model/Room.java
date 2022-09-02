@@ -1,4 +1,7 @@
-package com.emilfreydigital.bios.building;
+package com.emilfreydigital.bios.building.model;
+
+import com.sun.istack.NotNull;
+import com.sun.istack.Nullable;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -12,6 +15,7 @@ public class Room {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
+    @NotNull
     @Column(name = "name")
     private String Name;
 
@@ -21,25 +25,29 @@ public class Room {
     @Column(name = "room_number")
     private Integer RoomNumber;
 
-    //TODO Room - add relationship for HQL and check if anything else is needed
-    @Column(name = "room_type")
-    private Integer RoomType;
+    //TODO Find out why eager fetching works and lazy doesn't
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "room_type_id")
+    @Nullable
+    //@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private RoomType roomType;
+    @NotNull
     @Column(name = "date_created")
     private LocalDateTime DateCreated;
-
+    @NotNull
     @Column(name = "date_modified")
     private LocalDateTime DateModified;
 
     public Room() {
     }
 
-    public Room(Long id, String name, Integer floorNumber, Integer roomNumber, Integer roomType, LocalDateTime dateCreated, LocalDateTime dateModified) {
+    public Room(Long id, String name, Integer floorNumber, Integer roomNumber, RoomType roomType, LocalDateTime dateCreated, LocalDateTime dateModified) {
         Id = id;
         Name = name;
         FloorNumber = floorNumber;
         RoomNumber = roomNumber;
-        RoomType = roomType;
+        this.roomType = roomType;
         DateCreated = dateCreated;
         DateModified = dateModified;
     }
@@ -76,12 +84,12 @@ public class Room {
         RoomNumber = roomNumber;
     }
 
-    public Integer getRoomType() {
-        return RoomType;
+    public RoomType getRoomType() {
+        return roomType;
     }
 
-    public void setRoomType(Integer roomType) {
-        RoomType = roomType;
+    public void setRoomType(RoomType roomType) {
+        this.roomType = roomType;
     }
 
     public LocalDateTime getDateCreated() {

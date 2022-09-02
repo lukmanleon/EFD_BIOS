@@ -1,12 +1,13 @@
-package com.emilfreydigital.bios.building;
+package com.emilfreydigital.bios.company.model;
+
+import com.sun.istack.NotNull;
 
 import javax.persistence.*;
-
 import java.time.LocalDateTime;
 
 @Entity
-@Table(schema = "building", name = "room_type")
-public class RoomType {
+@Table(schema = "company", name = "company")
+public class Company {
 
     @Id
     @Column(name = "id")
@@ -14,10 +15,8 @@ public class RoomType {
     private Long Id;
 
     @Column(name = "name")
+    @NotNull
     private String Name;
-
-    @Column(name = "description")
-    private String Description;
 
     @Column(name = "date_created")
     private LocalDateTime DateCreated;
@@ -25,13 +24,12 @@ public class RoomType {
     @Column(name = "date_modified")
     private LocalDateTime DateModified;
 
-    public RoomType() {
+    public Company() {
     }
 
-    public RoomType(Long id, String name, String description, LocalDateTime dateCreated, LocalDateTime dateModified) {
+    public Company(Long id, String name, LocalDateTime dateCreated, LocalDateTime dateModified) {
         Id = id;
         Name = name;
-        Description = description;
         DateCreated = dateCreated;
         DateModified = dateModified;
     }
@@ -50,14 +48,6 @@ public class RoomType {
 
     public void setName(String name) {
         Name = name;
-    }
-
-    public String getDescription() {
-        return Description;
-    }
-
-    public void setDescription(String description) {
-        Description = description;
     }
 
     public LocalDateTime getDateCreated() {

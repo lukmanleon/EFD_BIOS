@@ -1,5 +1,7 @@
-package com.emilfreydigital.bios.company;
+package com.emilfreydigital.bios.company.controller;
 
+import com.emilfreydigital.bios.company.model.Team;
+import com.emilfreydigital.bios.company.service.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

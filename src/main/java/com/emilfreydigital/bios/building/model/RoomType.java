@@ -1,45 +1,46 @@
-package com.emilfreydigital.bios.company;
+package com.emilfreydigital.bios.building.model;
 
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
+
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(schema = "company", name = "team")
-public class Team {
+@Table(schema = "building", name = "room_type")
+public class RoomType {
 
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
-    @Column(name = "code")
     @NotNull
-    private String Code;
     @Column(name = "name")
-    @NotNull
     private String Name;
+
     @Column(name = "description")
     private String Description;
 
+    @NotNull
     @Column(name = "date_created")
     private LocalDateTime DateCreated;
+
+    @NotNull
     @Column(name = "date_modified")
     private LocalDateTime DateModified;
 
 
-    public Team() {
+    public RoomType() {
     }
 
-    public Team(Long id, String code, String name, String description, LocalDateTime dateCreated, LocalDateTime dateModified) {
+    public RoomType(Long id, String name, String description, LocalDateTime dateCreated, LocalDateTime dateModified) {
         Id = id;
-        Code = code;
         Name = name;
         Description = description;
         DateCreated = dateCreated;
         DateModified = dateModified;
     }
-
 
     public Long getId() {
         return Id;
@@ -47,14 +48,6 @@ public class Team {
 
     public void setId(Long id) {
         Id = id;
-    }
-
-    public String getCode() {
-        return Code;
-    }
-
-    public void setCode(String code) {
-        Code = code;
     }
 
     public String getName() {

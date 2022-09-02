@@ -1,5 +1,6 @@
-package com.emilfreydigital.bios.company;
+package com.emilfreydigital.bios.company.repository;
 
+import com.emilfreydigital.bios.company.model.Team;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

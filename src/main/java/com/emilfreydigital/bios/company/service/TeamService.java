@@ -1,5 +1,7 @@
-package com.emilfreydigital.bios.company;
+package com.emilfreydigital.bios.company.service;
 
+import com.emilfreydigital.bios.company.repository.TeamRepository;
+import com.emilfreydigital.bios.company.model.Team;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.ResponseEntity;
