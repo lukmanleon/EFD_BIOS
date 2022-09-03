@@ -1,6 +1,9 @@
-package com.emilfreydigital.bios.employee;
+package com.emilfreydigital.bios.company.model;
+
+import com.sun.istack.Nullable;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Entity
@@ -17,38 +20,38 @@ public class Employee {
 
     @Column(name = "surname")
     private String Surname;
-
+    @Nullable
     @Column(name = "birthday")
     private LocalDateTime Birthday;
-
+    @Nullable
     @Column(name = "gender")
     private Boolean Gender;
-
+    @Nullable
     @Column(name = "email")
     private String Email;
-
+    @Nullable
     @Column(name = "phone_number")
     private String Phone;
-
+    @Nullable
     @Column(name = "image_url")
     private String ImageUrl;
-
+    @Nullable
     @Column(name = "is_external")
     private Boolean IsExternal;
 
-    //TODO Employee - add relationship for HQL and check if anything else is needed
+    @Nullable
     @Column(name = "job_title_id")
     private Integer JobTitleId;
-
+    @Nullable
     @Column(name = "office_room_id")
     private Integer OfficeRoomID;
-
+    @Nullable
     @Column(name = "company_id")
     private Integer CompanyId;
-
+    @NotNull
     @Column(name = "date_created")
     private LocalDateTime DateCreated;
-
+    @NotNull
     @Column(name = "date_modified")
     private LocalDateTime DateModified;
 

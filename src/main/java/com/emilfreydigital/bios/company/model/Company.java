@@ -13,14 +13,13 @@ public class Company {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
-
-    @Column(name = "name")
     @NotNull
+    @Column(name = "name")
     private String Name;
-
+    @NotNull
     @Column(name = "date_created")
     private LocalDateTime DateCreated;
-
+    @NotNull
     @Column(name = "date_modified")
     private LocalDateTime DateModified;
 

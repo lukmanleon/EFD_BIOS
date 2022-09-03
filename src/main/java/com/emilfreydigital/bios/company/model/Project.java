@@ -1,45 +1,44 @@
-package com.emilfreydigital.bios.bios;
+package com.emilfreydigital.bios.company.model;
+
+import com.sun.istack.NotNull;
 
 import javax.persistence.*;
+import javax.validation.constraints.Null;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(schema = "bios", name = "config")
-public class Config {
+@Table(schema = "company", name = "project")
+public class Project {
 
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
-
-    @Column(name = "property_code")
-    private String PropertyCode;
-
-    @Column(name = "property_value")
-    private String PropertyValue;
-
+    @NotNull
+    @Column(name = "name")
+    private String Name;
+    @Null
     @Column(name = "description")
     private String Description;
 
+    @NotNull
     @Column(name = "date_created")
     private LocalDateTime DateCreated;
-
+    @NotNull
     @Column(name = "date_modified")
     private LocalDateTime DateModified;
 
 
-    public Config() {
+    public Project() {
     }
 
-    public Config(Long id, String propertyCode, String propertyValue, String description, LocalDateTime dateCreated, LocalDateTime dateModified) {
+    public Project(Long id, String name, String description, LocalDateTime dateCreated, LocalDateTime dateModified) {
         Id = id;
-        PropertyCode = propertyCode;
-        PropertyValue = propertyValue;
+        Name = name;
         Description = description;
         DateCreated = dateCreated;
         DateModified = dateModified;
     }
-
 
     public Long getId() {
         return Id;
@@ -49,20 +48,12 @@ public class Config {
         Id = id;
     }
 
-    public String getPropertyCode() {
-        return PropertyCode;
+    public String getName() {
+        return Name;
     }
 
-    public void setPropertyCode(String propertyCode) {
-        PropertyCode = propertyCode;
-    }
-
-    public String getPropertyValue() {
-        return PropertyValue;
-    }
-
-    public void setPropertyValue(String propertyValue) {
-        PropertyValue = propertyValue;
+    public void setName(String name) {
+        Name = name;
     }
 
     public String getDescription() {

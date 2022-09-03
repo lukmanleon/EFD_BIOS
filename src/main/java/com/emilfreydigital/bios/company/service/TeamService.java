@@ -52,7 +52,7 @@ public class TeamService {
             throw new Error("New team needs to have code and name values.");
         }
 
-        Optional<Team> searchedTeam = null;
+        Optional<Team> searchedTeam = Optional.empty();
         if (!(newTeam.getCode() == null)) {
             searchedTeam = teamRepository.getTeamByCode(newTeam.getCode());
         }

@@ -1,7 +1,6 @@
 package com.emilfreydigital.bios.building.model;
 
 import com.sun.istack.NotNull;
-import com.sun.istack.Nullable;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -27,11 +26,14 @@ public class Room {
 
     //TODO Find out why eager fetching works and lazy doesn't
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "room_type_id")
-    @Nullable
-    //@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private RoomType roomType;
+    //    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+//    @JoinColumn(name = "room_type_id")
+//    @Nullable
+//    //@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+//    private RoomType roomType;
+
+    @Column(name = "room_type_id")
+    private Integer RoomTypeId;
     @NotNull
     @Column(name = "date_created")
     private LocalDateTime DateCreated;
@@ -42,12 +44,12 @@ public class Room {
     public Room() {
     }
 
-    public Room(Long id, String name, Integer floorNumber, Integer roomNumber, RoomType roomType, LocalDateTime dateCreated, LocalDateTime dateModified) {
+    public Room(Long id, String name, Integer floorNumber, Integer roomNumber, Integer roomTypeId, LocalDateTime dateCreated, LocalDateTime dateModified) {
         Id = id;
         Name = name;
         FloorNumber = floorNumber;
         RoomNumber = roomNumber;
-        this.roomType = roomType;
+        RoomTypeId = roomTypeId;
         DateCreated = dateCreated;
         DateModified = dateModified;
     }
@@ -84,12 +86,12 @@ public class Room {
         RoomNumber = roomNumber;
     }
 
-    public RoomType getRoomType() {
-        return roomType;
+    public Integer getRoomTypeId() {
+        return RoomTypeId;
     }
 
-    public void setRoomType(RoomType roomType) {
-        this.roomType = roomType;
+    public void setRoomTypeId(Integer roomTypeId) {
+        RoomTypeId = roomTypeId;
     }
 
     public LocalDateTime getDateCreated() {

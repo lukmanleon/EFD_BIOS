@@ -1,41 +1,40 @@
-package com.emilfreydigital.bios.building.model;
+package com.emilfreydigital.bios.company.model;
 
 import com.sun.istack.NotNull;
+import com.sun.istack.Nullable;
 
 import javax.persistence.*;
-
 import java.time.LocalDateTime;
 
 @Entity
-@Table(schema = "building", name = "room_type")
-public class RoomType {
+@Table(schema = "company", name = "job_title")
+public class JobTitle {
 
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
-    @NotNull
-    @Column(name = "name")
-    private String Name;
 
+    @NotNull
+    @Column(name = "job_title_code")
+    private String JobTitleCode;
+
+    @Nullable
     @Column(name = "description")
     private String Description;
 
-    @NotNull
     @Column(name = "date_created")
     private LocalDateTime DateCreated;
-
-    @NotNull
     @Column(name = "date_modified")
     private LocalDateTime DateModified;
 
 
-    public RoomType() {
+    public JobTitle() {
     }
 
-    public RoomType(Long id, String name, String description, LocalDateTime dateCreated, LocalDateTime dateModified) {
+    public JobTitle(Long id, String jobTitleCode, String description, LocalDateTime dateCreated, LocalDateTime dateModified) {
         Id = id;
-        Name = name;
+        JobTitleCode = jobTitleCode;
         Description = description;
         DateCreated = dateCreated;
         DateModified = dateModified;
@@ -49,12 +48,12 @@ public class RoomType {
         Id = id;
     }
 
-    public String getName() {
-        return Name;
+    public String getJobTitleCode() {
+        return JobTitleCode;
     }
 
-    public void setName(String name) {
-        Name = name;
+    public void setJobTitleCode(String jobTitleCode) {
+        JobTitleCode = jobTitleCode;
     }
 
     public String getDescription() {

@@ -1,42 +1,38 @@
-package com.emilfreydigital.bios.building.model;
-
-import com.sun.istack.NotNull;
+package com.emilfreydigital.bios.company.model;
 
 import javax.persistence.*;
-
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(schema = "building", name = "room_type")
-public class RoomType {
+@Table(schema = "company", name = "employee_project")
+public class EmployeeProject {
 
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
+
     @NotNull
-    @Column(name = "name")
-    private String Name;
-
-    @Column(name = "description")
-    private String Description;
-
+    @Column(name = "employee_id")
+    private Integer EmployeeId;
+    @NotNull
+    @Column(name = "project_id")
+    private Integer ProjectId;
     @NotNull
     @Column(name = "date_created")
     private LocalDateTime DateCreated;
-
     @NotNull
     @Column(name = "date_modified")
     private LocalDateTime DateModified;
 
-
-    public RoomType() {
+    public EmployeeProject() {
     }
 
-    public RoomType(Long id, String name, String description, LocalDateTime dateCreated, LocalDateTime dateModified) {
+    public EmployeeProject(Long id, Integer employeeId, Integer projectId, LocalDateTime dateCreated, LocalDateTime dateModified) {
         Id = id;
-        Name = name;
-        Description = description;
+        EmployeeId = employeeId;
+        ProjectId = projectId;
         DateCreated = dateCreated;
         DateModified = dateModified;
     }
@@ -49,20 +45,20 @@ public class RoomType {
         Id = id;
     }
 
-    public String getName() {
-        return Name;
+    public Integer getEmployeeId() {
+        return EmployeeId;
     }
 
-    public void setName(String name) {
-        Name = name;
+    public void setEmployeeId(Integer employeeId) {
+        EmployeeId = employeeId;
     }
 
-    public String getDescription() {
-        return Description;
+    public Integer getProjectId() {
+        return ProjectId;
     }
 
-    public void setDescription(String description) {
-        Description = description;
+    public void setProjectId(Integer projectId) {
+        ProjectId = projectId;
     }
 
     public LocalDateTime getDateCreated() {

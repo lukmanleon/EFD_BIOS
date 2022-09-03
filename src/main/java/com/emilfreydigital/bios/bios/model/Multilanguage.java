@@ -1,6 +1,9 @@
-package com.emilfreydigital.bios.bios;
+package com.emilfreydigital.bios.bios.model;
+
+import com.sun.istack.Nullable;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Entity
@@ -11,22 +14,22 @@ public class Multilanguage {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
-
+    @NotNull
     @Column(name = "translation_key")
     private String TranslationKey;
-
+    @Nullable
     @Column(name = "eng")
     private String Eng;
-
+    @Nullable
     @Column(name = "cro")
     private String Cro;
-
+    @Nullable
     @Column(name = "ger")
     private String Ger;
-
+    @NotNull
     @Column(name = "date_created")
     private LocalDateTime DateCreated;
-
+    @NotNull
     @Column(name = "date_modified")
     private LocalDateTime DateModified;
 

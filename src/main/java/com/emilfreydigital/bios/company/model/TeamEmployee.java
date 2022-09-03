@@ -1,25 +1,30 @@
-package com.emilfreydigital.bios.communication;
+package com.emilfreydigital.bios.company.model;
+
+import com.sun.istack.NotNull;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(schema = "communication", name = "notification")
-public class Notification {
+@Table(schema = "company", name = "team_employee")
+public class TeamEmployee {
 
-    @Id
+    @javax.persistence.Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
+    @NotNull
+    @Column(name = "team_id")
+    private Integer TeamId;
+
+    @NotNull
     @Column(name = "employee_id")
     private Integer EmployeeId;
 
-    @Column(name = "message_title")
-    private String MessageTitle;
-
-    @Column(name = "message_text")
-    private String MessageText;
+    @NotNull
+    @Column(name = "is_enabled")
+    private Boolean IsEnabled;
 
     @Column(name = "date_created")
     private LocalDateTime DateCreated;
@@ -27,14 +32,14 @@ public class Notification {
     @Column(name = "date_modified")
     private LocalDateTime DateModified;
 
-    public Notification() {
+    public TeamEmployee() {
     }
 
-    public Notification(Long id, Integer employeeId, String messageTitle, String messageText, LocalDateTime dateCreated, LocalDateTime dateModified) {
+    public TeamEmployee(Long id, Integer teamId, Integer employeeId, Boolean isEnabled, LocalDateTime dateCreated, LocalDateTime dateModified) {
         Id = id;
+        TeamId = teamId;
         EmployeeId = employeeId;
-        MessageTitle = messageTitle;
-        MessageText = messageText;
+        IsEnabled = isEnabled;
         DateCreated = dateCreated;
         DateModified = dateModified;
     }
@@ -47,6 +52,14 @@ public class Notification {
         Id = id;
     }
 
+    public Integer getTeamId() {
+        return TeamId;
+    }
+
+    public void setTeamId(Integer teamId) {
+        TeamId = teamId;
+    }
+
     public Integer getEmployeeId() {
         return EmployeeId;
     }
@@ -55,20 +68,12 @@ public class Notification {
         EmployeeId = employeeId;
     }
 
-    public String getMessageTitle() {
-        return MessageTitle;
+    public Boolean getEnabled() {
+        return IsEnabled;
     }
 
-    public void setMessageTitle(String messageTitle) {
-        MessageTitle = messageTitle;
-    }
-
-    public String getMessageText() {
-        return MessageText;
-    }
-
-    public void setMessageText(String messageText) {
-        MessageText = messageText;
+    public void setEnabled(Boolean enabled) {
+        IsEnabled = enabled;
     }
 
     public LocalDateTime getDateCreated() {
