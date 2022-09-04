@@ -1,6 +1,6 @@
 package com.emilfreydigital.bios.company.controller;
 
-import com.emilfreydigital.bios.company.model.JobTitle;
+import com.emilfreydigital.bios.company.dto.JobTitleDto;
 import com.emilfreydigital.bios.company.service.JobTitleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +17,7 @@ public class JobTitleController {
     JobTitleService jobTitleService;
 
     @GetMapping
-    public List<JobTitle> company() {
+    public List<JobTitleDto> company() {
         return jobTitleService.getAll();
     }
 

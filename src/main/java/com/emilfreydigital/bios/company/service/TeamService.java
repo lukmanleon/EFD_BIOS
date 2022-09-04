@@ -1,5 +1,7 @@
 package com.emilfreydigital.bios.company.service;
 
+import com.emilfreydigital.bios.company.converter.TeamConverter;
+import com.emilfreydigital.bios.company.dto.TeamDto;
 import com.emilfreydigital.bios.company.repository.TeamRepository;
 import com.emilfreydigital.bios.company.model.Team;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,16 +21,33 @@ public class TeamService {
     @Autowired
     TeamRepository teamRepository;
 
-    public List<Team> getAll() {
-        return (List<Team>) teamRepository.findAll();
+    public List<TeamDto> getAll() {
+        List<Team> allTeams = teamRepository.findAll();
+        List<TeamDto> teamDtoList = null;
+
+        if (!(allTeams == null) && !(allTeams.isEmpty())) {
+            TeamDto temporaryDto = null;
+            for (Team t : allTeams) {
+                temporaryDto = TeamConverter.toDto(t);
+                if (teamDtoList != null) {
+                    if (!teamDtoList.contains(temporaryDto)) {
+                        teamDtoList.add(temporaryDto);
+                    }
+                } else {
+                    teamDtoList = new ArrayList<>();
+                    teamDtoList.add(temporaryDto);
+                }
+            }
+        }
+        return teamDtoList;
     }
 
-    public Team getTeamById(Long Id) {
+    public TeamDto getTeamById(Long Id) {
         Optional<Team> searchedTeam = teamRepository.findById(Id);
         if (!searchedTeam.isPresent()) {
             throw new EntityNotFoundException();
         }
-        return searchedTeam.get();
+        return TeamConverter.toDto(searchedTeam.get());
     }
 
     public Team getTeamByCode(String teamCode) {

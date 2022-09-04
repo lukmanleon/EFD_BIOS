@@ -1,6 +1,6 @@
 package com.emilfreydigital.bios.company.controller;
 
-import com.emilfreydigital.bios.company.model.Company;
+import com.emilfreydigital.bios.company.dto.CompanyDto;
 import com.emilfreydigital.bios.company.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +17,7 @@ public class CompanyController {
     CompanyService companyService;
 
     @GetMapping
-    public List<Company> company() {
+    public List<CompanyDto> company() {
         return companyService.getAll();
     }
 

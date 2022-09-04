@@ -1,5 +1,6 @@
 package com.emilfreydigital.bios.company.controller;
 
+import com.emilfreydigital.bios.company.dto.TeamDto;
 import com.emilfreydigital.bios.company.model.Team;
 import com.emilfreydigital.bios.company.service.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,15 +15,15 @@ import java.util.List;
 public class TeamController {
 
     @Autowired
-    TeamService teamService;
+    private TeamService teamService;
 
     @GetMapping
-    public List<Team> team() {
+    public List<TeamDto> team() {
         return teamService.getAll();
     }
 
     @GetMapping(value = "/{id}")
-    public Team getTeamById(@PathVariable(value = "id") Long id) {
+    public TeamDto getTeamById(@PathVariable(value = "id") Long id) {
         return teamService.getTeamById(id);
     }
 
