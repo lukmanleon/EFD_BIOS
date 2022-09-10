@@ -12,83 +12,83 @@ public class TeamEmployee {
     @javax.persistence.Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
 
     @NotNull
     @Column(name = "team_id")
-    private Integer TeamId;
+    private Integer teamId;
 
     @NotNull
     @Column(name = "employee_id")
-    private Integer EmployeeId;
+    private Integer employeeId;
 
     @NotNull
     @Column(name = "is_enabled")
-    private Boolean IsEnabled;
+    private Boolean isEnabled;
 
     @Column(name = "date_created")
-    private LocalDateTime DateCreated;
+    private LocalDateTime dateCreated;
 
     @Column(name = "date_modified")
-    private LocalDateTime DateModified;
+    private LocalDateTime dateModified;
 
     public TeamEmployee() {
     }
 
     public TeamEmployee(Long id, Integer teamId, Integer employeeId, Boolean isEnabled, LocalDateTime dateCreated, LocalDateTime dateModified) {
-        Id = id;
-        TeamId = teamId;
-        EmployeeId = employeeId;
-        IsEnabled = isEnabled;
-        DateCreated = dateCreated;
-        DateModified = dateModified;
+        this.id = id;
+        this.teamId = teamId;
+        this.employeeId = employeeId;
+        this.isEnabled = isEnabled;
+        this.dateCreated = dateCreated;
+        this.dateModified = dateModified;
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
     }
 
     public Integer getTeamId() {
-        return TeamId;
+        return teamId;
     }
 
     public void setTeamId(Integer teamId) {
-        TeamId = teamId;
+        this.teamId = teamId;
     }
 
     public Integer getEmployeeId() {
-        return EmployeeId;
+        return employeeId;
     }
 
     public void setEmployeeId(Integer employeeId) {
-        EmployeeId = employeeId;
+        this.employeeId = employeeId;
     }
 
     public Boolean getEnabled() {
-        return IsEnabled;
+        return isEnabled;
     }
 
     public void setEnabled(Boolean enabled) {
-        IsEnabled = enabled;
+        isEnabled = enabled;
     }
 
     public LocalDateTime getDateCreated() {
-        return DateCreated;
+        return dateCreated;
     }
 
     public void setDateCreated(LocalDateTime dateCreated) {
-        DateCreated = dateCreated;
+        this.dateCreated = dateCreated;
     }
 
     public LocalDateTime getDateModified() {
-        return DateModified;
+        return dateModified;
     }
 
     public void setDateModified(LocalDateTime dateModified) {
-        DateModified = dateModified;
+        this.dateModified = dateModified;
     }
 }

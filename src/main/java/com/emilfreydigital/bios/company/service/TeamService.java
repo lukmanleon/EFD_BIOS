@@ -2,8 +2,8 @@ package com.emilfreydigital.bios.company.service;
 
 import com.emilfreydigital.bios.company.converter.TeamConverter;
 import com.emilfreydigital.bios.company.dto.TeamDto;
-import com.emilfreydigital.bios.company.repository.TeamRepository;
 import com.emilfreydigital.bios.company.model.Team;
+import com.emilfreydigital.bios.company.repository.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.ResponseEntity;
@@ -18,8 +18,12 @@ import java.util.Optional;
 @Service
 public class TeamService {
 
+    private final TeamRepository teamRepository;
+
     @Autowired
-    TeamRepository teamRepository;
+    public TeamService(TeamRepository teamRepository) {
+        this.teamRepository = teamRepository;
+    }
 
     public List<TeamDto> getAll() {
         List<Team> allTeams = teamRepository.findAll();

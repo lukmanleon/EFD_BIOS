@@ -10,16 +10,18 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/bios/employeeproject")
+@RequestMapping(path = "api/v1/bios/employeeproject")
 public class EmployeeProjectController {
+    private final EmployeeProjectService employeeProjectService;
 
     @Autowired
-    EmployeeProjectService employeeProjectService;
+    public EmployeeProjectController(EmployeeProjectService employeeProjectService) {
+        this.employeeProjectService = employeeProjectService;
+    }
 
     @GetMapping
     public List<EmployeeProject> company() {
         return employeeProjectService.getAll();
     }
-
 
 }

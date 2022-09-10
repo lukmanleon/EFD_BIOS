@@ -11,8 +11,12 @@ import java.util.List;
 @Service
 public class RoomTypeService {
 
+    private final RoomTypeRepository roomTypeRepository;
+
     @Autowired
-    RoomTypeRepository roomTypeRepository;
+    public RoomTypeService(RoomTypeRepository roomTypeRepository) {
+        this.roomTypeRepository = roomTypeRepository;
+    }
 
     public List<RoomType> getAll() {
         return (List<RoomType>) roomTypeRepository.findAll();

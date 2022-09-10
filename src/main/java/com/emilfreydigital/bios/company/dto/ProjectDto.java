@@ -3,42 +3,42 @@ package com.emilfreydigital.bios.company.dto;
 
 public class ProjectDto {
 
-    private Long Id;
-    private String Name;
-    private String Description;
+    private Long id;
+    private String name;
+    private String description;
 
 
     public ProjectDto() {
     }
 
     public ProjectDto(Long id, String name, String description) {
-        Id = id;
-        Name = name;
-        Description = description;
+        this.id = id;
+        this.name = name;
+        this.description = description;
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String description) {
-        Description = description;
+        this.description = description;
     }
 
 }

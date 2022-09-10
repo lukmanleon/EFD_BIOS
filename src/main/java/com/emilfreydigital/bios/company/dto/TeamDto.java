@@ -4,54 +4,54 @@ package com.emilfreydigital.bios.company.dto;
 public class TeamDto {
 
 
-    private Long Id;
-    private String Code;
+    private Long id;
+    private String code;
 
-    private String Name;
-    private String Description;
+    private String name;
+    private String description;
 
 
     public TeamDto() {
     }
 
     public TeamDto(Long id, String code, String name, String description) {
-        Id = id;
-        Code = code;
-        Name = name;
-        Description = description;
+        this.id = id;
+        this.code = code;
+        this.name = name;
+        this.description = description;
     }
 
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getCode() {
-        return Code;
+        return code;
     }
 
     public void setCode(String code) {
-        Code = code;
+        this.code = code;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String description) {
-        Description = description;
+        this.description = description;
     }
 
 

@@ -10,11 +10,15 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/bios/roomtypes")
+@RequestMapping(path = "api/v1/bios/roomtypes")
 public class RoomTypeController {
 
+    private final RoomTypeService roomTypeService;
+
     @Autowired
-    RoomTypeService roomTypeService;
+    public RoomTypeController(RoomTypeService roomTypeService) {
+        this.roomTypeService = roomTypeService;
+    }
 
     @GetMapping
     public List<RoomType> rooms() {

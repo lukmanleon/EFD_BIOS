@@ -11,8 +11,12 @@ import java.util.List;
 @Service
 public class MultilanguageService {
 
+    private final MultilanguageRepository multilanguageRepository;
+
     @Autowired
-    MultilanguageRepository multilanguageRepository;
+    public MultilanguageService(MultilanguageRepository multilanguageRepository) {
+        this.multilanguageRepository = multilanguageRepository;
+    }
 
     public List<Multilanguage> getAll() {
         return (List<Multilanguage>) multilanguageRepository.findAll();

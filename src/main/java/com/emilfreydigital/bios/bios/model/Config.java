@@ -13,82 +13,82 @@ public class Config {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
     @NotNull
     @Column(name = "property_code")
-    private String PropertyCode;
+    private String propertyCode;
     @Null
     @Column(name = "property_value")
-    private String PropertyValue;
+    private String propertyValue;
     @Null
     @Column(name = "description")
-    private String Description;
+    private String description;
     @NotNull
     @Column(name = "date_created")
-    private LocalDateTime DateCreated;
+    private LocalDateTime dateCreated;
     @NotNull
     @Column(name = "date_modified")
-    private LocalDateTime DateModified;
+    private LocalDateTime dateModified;
 
 
     public Config() {
     }
 
     public Config(Long id, String propertyCode, String propertyValue, String description, LocalDateTime dateCreated, LocalDateTime dateModified) {
-        Id = id;
-        PropertyCode = propertyCode;
-        PropertyValue = propertyValue;
-        Description = description;
-        DateCreated = dateCreated;
-        DateModified = dateModified;
+        this.id = id;
+        this.propertyCode = propertyCode;
+        this.propertyValue = propertyValue;
+        this.description = description;
+        this.dateCreated = dateCreated;
+        this.dateModified = dateModified;
     }
 
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getPropertyCode() {
-        return PropertyCode;
+        return propertyCode;
     }
 
     public void setPropertyCode(String propertyCode) {
-        PropertyCode = propertyCode;
+        this.propertyCode = propertyCode;
     }
 
     public String getPropertyValue() {
-        return PropertyValue;
+        return propertyValue;
     }
 
     public void setPropertyValue(String propertyValue) {
-        PropertyValue = propertyValue;
+        this.propertyValue = propertyValue;
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String description) {
-        Description = description;
+        this.description = description;
     }
 
     public LocalDateTime getDateCreated() {
-        return DateCreated;
+        return dateCreated;
     }
 
     public void setDateCreated(LocalDateTime dateCreated) {
-        DateCreated = dateCreated;
+        this.dateCreated = dateCreated;
     }
 
     public LocalDateTime getDateModified() {
-        return DateModified;
+        return dateModified;
     }
 
     public void setDateModified(LocalDateTime dateModified) {
-        DateModified = dateModified;
+        this.dateModified = dateModified;
     }
 }

@@ -13,93 +13,93 @@ public class Multilanguage {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
     @NotNull
     @Column(name = "translation_key")
-    private String TranslationKey;
+    private String translationKey;
     @Nullable
     @Column(name = "eng")
-    private String Eng;
+    private String eng;
     @Nullable
     @Column(name = "cro")
-    private String Cro;
+    private String cro;
     @Nullable
     @Column(name = "ger")
-    private String Ger;
+    private String ger;
     @NotNull
     @Column(name = "date_created")
-    private LocalDateTime DateCreated;
+    private LocalDateTime dateCreated;
     @NotNull
     @Column(name = "date_modified")
-    private LocalDateTime DateModified;
+    private LocalDateTime dateModified;
 
 
     public Multilanguage() {
     }
 
     public Multilanguage(Long id, String translationKey, String eng, String cro, String ger, LocalDateTime dateCreated, LocalDateTime dateModified) {
-        Id = id;
-        TranslationKey = translationKey;
-        Eng = eng;
-        Cro = cro;
-        Ger = ger;
-        DateCreated = dateCreated;
-        DateModified = dateModified;
+        id = id;
+        this.translationKey = translationKey;
+        this.eng = eng;
+        this.cro = cro;
+        this.ger = ger;
+        this.dateCreated = dateCreated;
+        this.dateModified = dateModified;
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        id = id;
     }
 
     public String getTranslationKey() {
-        return TranslationKey;
+        return translationKey;
     }
 
     public void setTranslationKey(String translationKey) {
-        TranslationKey = translationKey;
+        this.translationKey = translationKey;
     }
 
     public String getEng() {
-        return Eng;
+        return eng;
     }
 
     public void setEng(String eng) {
-        Eng = eng;
+        this.eng = eng;
     }
 
     public String getCro() {
-        return Cro;
+        return cro;
     }
 
     public void setCro(String cro) {
-        Cro = cro;
+        this.cro = cro;
     }
 
     public String getGer() {
-        return Ger;
+        return ger;
     }
 
     public void setGer(String ger) {
-        Ger = ger;
+        this.ger = ger;
     }
 
     public LocalDateTime getDateCreated() {
-        return DateCreated;
+        return dateCreated;
     }
 
     public void setDateCreated(LocalDateTime dateCreated) {
-        DateCreated = dateCreated;
+        this.dateCreated = dateCreated;
     }
 
     public LocalDateTime getDateModified() {
-        return DateModified;
+        return dateModified;
     }
 
     public void setDateModified(LocalDateTime dateModified) {
-        DateModified = dateModified;
+        dateModified = dateModified;
     }
 }

@@ -12,56 +12,56 @@ public class Company {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
     @NotNull
     @Column(name = "name")
-    private String Name;
+    private String name;
     @NotNull
     @Column(name = "date_created")
-    private LocalDateTime DateCreated;
+    private LocalDateTime dateCreated;
     @NotNull
     @Column(name = "date_modified")
-    private LocalDateTime DateModified;
+    private LocalDateTime dateModified;
 
     public Company() {
     }
 
     public Company(Long id, String name, LocalDateTime dateCreated, LocalDateTime dateModified) {
-        Id = id;
-        Name = name;
-        DateCreated = dateCreated;
-        DateModified = dateModified;
+        this.id = id;
+        this.name = name;
+        this.dateCreated = dateCreated;
+        this.dateModified = dateModified;
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public LocalDateTime getDateCreated() {
-        return DateCreated;
+        return dateCreated;
     }
 
     public void setDateCreated(LocalDateTime dateCreated) {
-        DateCreated = dateCreated;
+        this.dateCreated = dateCreated;
     }
 
     public LocalDateTime getDateModified() {
-        return DateModified;
+        return dateModified;
     }
 
     public void setDateModified(LocalDateTime dateModified) {
-        DateModified = dateModified;
+        this.dateModified = dateModified;
     }
 }

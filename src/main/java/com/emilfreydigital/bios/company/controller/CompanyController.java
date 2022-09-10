@@ -10,16 +10,18 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/bios/company")
+@RequestMapping(path = "api/v1/bios/company")
 public class CompanyController {
+    private final CompanyService companyService;
 
     @Autowired
-    CompanyService companyService;
+    public CompanyController(CompanyService companyService) {
+        this.companyService = companyService;
+    }
 
     @GetMapping
     public List<CompanyDto> company() {
         return companyService.getAll();
     }
-
 
 }

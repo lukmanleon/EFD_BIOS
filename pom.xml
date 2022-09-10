@@ -10,11 +10,11 @@
     </parent>
     <groupId>com.emilfreydigital</groupId>
     <artifactId>bios</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <name>bios</name>
     <description>Demo project</description>
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>14</java.version>
     </properties>
 
     <dependencies>

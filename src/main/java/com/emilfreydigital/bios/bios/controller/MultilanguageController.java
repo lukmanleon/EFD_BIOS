@@ -10,14 +10,18 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/bios/multilanguage")
+@RequestMapping(path = "api/v1/bios/multilanguage")
 public class MultilanguageController {
 
+    private final MultilanguageService multilanguageService;
+
     @Autowired
-    MultilanguageService multilanguageService;
+    public MultilanguageController(MultilanguageService multilanguageService) {
+        this.multilanguageService = multilanguageService;
+    }
 
     @GetMapping
-    public List<Multilanguage> rooms() {
+    public List<Multilanguage> configs() {
         return multilanguageService.getAll();
     }
 }

@@ -13,82 +13,82 @@ public class Notification {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
 
     @NotNull
     @Column(name = "employee_id")
-    private Integer EmployeeId;
+    private Integer employeeId;
     @NotNull
     @Column(name = "message_title")
-    private String MessageTitle;
+    private String messageTitle;
 
     @Nullable
     @Column(name = "message_text")
-    private String MessageText;
+    private String messageText;
     @NotNull
     @Column(name = "date_created")
-    private LocalDateTime DateCreated;
+    private LocalDateTime dateCreated;
     @NotNull
     @Column(name = "date_modified")
-    private LocalDateTime DateModified;
+    private LocalDateTime dateModified;
 
     public Notification() {
     }
 
     public Notification(Long id, Integer employeeId, String messageTitle, String messageText, LocalDateTime dateCreated, LocalDateTime dateModified) {
-        Id = id;
-        EmployeeId = employeeId;
-        MessageTitle = messageTitle;
-        MessageText = messageText;
-        DateCreated = dateCreated;
-        DateModified = dateModified;
+        this.id = id;
+        this.employeeId = employeeId;
+        this.messageTitle = messageTitle;
+        this.messageText = messageText;
+        this.dateCreated = dateCreated;
+        this.dateModified = dateModified;
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
     }
 
     public Integer getEmployeeId() {
-        return EmployeeId;
+        return employeeId;
     }
 
     public void setEmployeeId(Integer employeeId) {
-        EmployeeId = employeeId;
+        this.employeeId = employeeId;
     }
 
     public String getMessageTitle() {
-        return MessageTitle;
+        return messageTitle;
     }
 
     public void setMessageTitle(String messageTitle) {
-        MessageTitle = messageTitle;
+        this.messageTitle = messageTitle;
     }
 
     public String getMessageText() {
-        return MessageText;
+        return messageText;
     }
 
     public void setMessageText(String messageText) {
-        MessageText = messageText;
+        this.messageText = messageText;
     }
 
     public LocalDateTime getDateCreated() {
-        return DateCreated;
+        return dateCreated;
     }
 
     public void setDateCreated(LocalDateTime dateCreated) {
-        DateCreated = dateCreated;
+        this.dateCreated = dateCreated;
     }
 
     public LocalDateTime getDateModified() {
-        return DateModified;
+        return dateModified;
     }
 
     public void setDateModified(LocalDateTime dateModified) {
-        DateModified = dateModified;
+        this.dateModified = dateModified;
     }
 }

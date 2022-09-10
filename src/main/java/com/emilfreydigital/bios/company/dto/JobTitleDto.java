@@ -2,43 +2,43 @@ package com.emilfreydigital.bios.company.dto;
 
 public class JobTitleDto {
 
-    private Long Id;
-    private String JobTitleCode;
-    private String Description;
+    private Long id;
+    private String jobTitleCode;
+    private String description;
 
 
     public JobTitleDto() {
     }
 
     public JobTitleDto(Long id, String jobTitleCode, String description) {
-        Id = id;
-        JobTitleCode = jobTitleCode;
-        Description = description;
+        this.id = id;
+        this.jobTitleCode = jobTitleCode;
+        this.description = description;
 
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getJobTitleCode() {
-        return JobTitleCode;
+        return jobTitleCode;
     }
 
     public void setJobTitleCode(String jobTitleCode) {
-        JobTitleCode = jobTitleCode;
+        this.jobTitleCode = jobTitleCode;
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String description) {
-        Description = description;
+        this.description = description;
     }
 
 }

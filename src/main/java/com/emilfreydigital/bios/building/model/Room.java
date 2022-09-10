@@ -12,17 +12,17 @@ public class Room {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
 
     @NotNull
     @Column(name = "name")
-    private String Name;
+    private String name;
 
     @Column(name = "floor_number")
-    private Integer FloorNumber;
+    private Integer floorNumber;
 
     @Column(name = "room_number")
-    private Integer RoomNumber;
+    private Integer roomNumber;
 
     //TODO Find out why eager fetching works and lazy doesn't
 
@@ -33,80 +33,80 @@ public class Room {
 //    private RoomType roomType;
 
     @Column(name = "room_type_id")
-    private Integer RoomTypeId;
+    private Integer roomTypeId;
     @NotNull
     @Column(name = "date_created")
-    private LocalDateTime DateCreated;
+    private LocalDateTime dateCreated;
     @NotNull
     @Column(name = "date_modified")
-    private LocalDateTime DateModified;
+    private LocalDateTime dateModified;
 
     public Room() {
     }
 
     public Room(Long id, String name, Integer floorNumber, Integer roomNumber, Integer roomTypeId, LocalDateTime dateCreated, LocalDateTime dateModified) {
-        Id = id;
-        Name = name;
-        FloorNumber = floorNumber;
-        RoomNumber = roomNumber;
-        RoomTypeId = roomTypeId;
-        DateCreated = dateCreated;
-        DateModified = dateModified;
+        this.id = id;
+        this.name = name;
+        this.floorNumber = floorNumber;
+        this.roomNumber = roomNumber;
+        this.roomTypeId = roomTypeId;
+        this.dateCreated = dateCreated;
+        this.dateModified = dateModified;
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public Integer getFloorNumber() {
-        return FloorNumber;
+        return floorNumber;
     }
 
     public void setFloorNumber(Integer floorNumber) {
-        FloorNumber = floorNumber;
+        this.floorNumber = floorNumber;
     }
 
     public Integer getRoomNumber() {
-        return RoomNumber;
+        return roomNumber;
     }
 
     public void setRoomNumber(Integer roomNumber) {
-        RoomNumber = roomNumber;
+        this.roomNumber = roomNumber;
     }
 
     public Integer getRoomTypeId() {
-        return RoomTypeId;
+        return roomTypeId;
     }
 
     public void setRoomTypeId(Integer roomTypeId) {
-        RoomTypeId = roomTypeId;
+        this.roomTypeId = roomTypeId;
     }
 
     public LocalDateTime getDateCreated() {
-        return DateCreated;
+        return dateCreated;
     }
 
     public void setDateCreated(LocalDateTime dateCreated) {
-        DateCreated = dateCreated;
+        this.dateCreated = dateCreated;
     }
 
     public LocalDateTime getDateModified() {
-        return DateModified;
+        return dateModified;
     }
 
     public void setDateModified(LocalDateTime dateModified) {
-        DateModified = dateModified;
+        this.dateModified = dateModified;
     }
 }

@@ -4,33 +4,32 @@ package com.emilfreydigital.bios.company.dto;
 public class CompanyDto {
 
 
-    private Long Id;
-
-    private String Name;
+    private Long id;
+    private String name;
 
 
     public CompanyDto() {
     }
 
     public CompanyDto(Long id, String name) {
-        Id = id;
-        Name = name;
+        this.id = id;
+        this.name = name;
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
 }

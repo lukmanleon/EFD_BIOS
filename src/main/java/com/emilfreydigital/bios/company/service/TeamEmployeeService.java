@@ -10,8 +10,12 @@ import java.util.List;
 @Service
 public class TeamEmployeeService {
 
+    private final TeamEmployeeRepository teamEmployeeRepository;
+
     @Autowired
-    TeamEmployeeRepository teamEmployeeRepository;
+    public TeamEmployeeService(TeamEmployeeRepository teamEmployeeRepository) {
+        this.teamEmployeeRepository = teamEmployeeRepository;
+    }
 
     public List<TeamEmployee> getAll() {
         return (List<TeamEmployee>) teamEmployeeRepository.findAll();

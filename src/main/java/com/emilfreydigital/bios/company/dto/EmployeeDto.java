@@ -1,13 +1,13 @@
 package com.emilfreydigital.bios.company.dto;
 
 public class EmployeeDto {
-    private Long Id;
-    private String Name;
-    private String Surname;
-    private String ImageUrl;
-    private Boolean IsExternal;
-    private Integer JobTitleId;
-    private Integer CompanyId;
+    private Long id;
+    private String name;
+    private String surname;
+    private String imageUrl;
+    private Boolean isExternal;
+    private Integer jobTitleId;
+    private Integer companyId;
 
 
     public EmployeeDto() {
@@ -15,68 +15,68 @@ public class EmployeeDto {
 
     public EmployeeDto(Long id, String name, String surname, String imageUrl, Boolean isExternal,
                        Integer jobTitleId, Integer companyId) {
-        Id = id;
-        Name = name;
-        Surname = surname;
-        ImageUrl = imageUrl;
-        IsExternal = isExternal;
-        JobTitleId = jobTitleId;
-        CompanyId = companyId;
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.imageUrl = imageUrl;
+        this.isExternal = isExternal;
+        this.jobTitleId = jobTitleId;
+        this.companyId = companyId;
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getSurname() {
-        return Surname;
+        return surname;
     }
 
     public void setSurname(String surname) {
-        Surname = surname;
+        this.surname = surname;
     }
 
     public String getImageUrl() {
-        return ImageUrl;
+        return imageUrl;
     }
 
     public void setImageUrl(String imageUrl) {
-        ImageUrl = imageUrl;
+        this.imageUrl = imageUrl;
     }
 
     public Boolean getExternal() {
-        return IsExternal;
+        return isExternal;
     }
 
     public void setExternal(Boolean external) {
-        IsExternal = external;
+        isExternal = external;
     }
 
     public Integer getJobTitleId() {
-        return JobTitleId;
+        return jobTitleId;
     }
 
     public void setJobTitleId(Integer jobTitleId) {
-        JobTitleId = jobTitleId;
+        this.jobTitleId = jobTitleId;
     }
 
     public Integer getCompanyId() {
-        return CompanyId;
+        return companyId;
     }
 
     public void setCompanyId(Integer companyId) {
-        CompanyId = companyId;
+        this.companyId = companyId;
     }
 }

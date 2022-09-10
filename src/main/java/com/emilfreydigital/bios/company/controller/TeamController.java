@@ -13,9 +13,12 @@ import java.util.List;
 @RestController
 @RequestMapping("api/v1/bios/teams")
 public class TeamController {
+    private final TeamService teamService;
 
     @Autowired
-    private TeamService teamService;
+    public TeamController(TeamService teamService) {
+        this.teamService = teamService;
+    }
 
     @GetMapping
     public List<TeamDto> team() {

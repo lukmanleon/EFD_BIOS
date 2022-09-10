@@ -13,8 +13,12 @@ import java.util.List;
 @Service
 public class CompanyService {
 
+    private final CompanyRepository companyRepository;
+
     @Autowired
-    CompanyRepository companyRepository;
+    public CompanyService(CompanyRepository companyRepository) {
+        this.companyRepository = companyRepository;
+    }
 
     public List<CompanyDto> getAll() {
         List<Company> allCompanies = companyRepository.findAll();

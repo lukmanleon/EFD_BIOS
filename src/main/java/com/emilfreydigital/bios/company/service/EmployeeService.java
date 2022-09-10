@@ -16,8 +16,12 @@ import java.util.Optional;
 @Service
 public class EmployeeService {
 
+    private final EmployeeRepository employeeRepository;
+
     @Autowired
-    EmployeeRepository employeeRepository;
+    public EmployeeService(EmployeeRepository employeeRepository) {
+        this.employeeRepository = employeeRepository;
+    }
 
     public List<EmployeeDto> getAll() {
         List<Employee> allEmployees = employeeRepository.findAll();

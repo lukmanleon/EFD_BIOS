@@ -3,18 +3,18 @@ package com.emilfreydigital.bios.company.dto;
 import java.time.LocalDateTime;
 
 public class EmployeeDetailsDto {
-    private Long Id;
-    private String Name;
-    private String Surname;
-    private LocalDateTime Birthday;
-    private Boolean Gender;
-    private String Email;
-    private String Phone;
-    private String ImageUrl;
-    private Boolean IsExternal;
-    private Integer JobTitleId;
-    private Integer OfficeRoomID;
-    private Integer CompanyId;
+    private Long id;
+    private String name;
+    private String surname;
+    private LocalDateTime birthday;
+    private Boolean gender;
+    private String email;
+    private String phone;
+    private String imageUrl;
+    private Boolean isExternal;
+    private Integer jobTitleId;
+    private Integer officeRoomID;
+    private Integer companyId;
 
 
     public EmployeeDetailsDto() {
@@ -23,114 +23,114 @@ public class EmployeeDetailsDto {
     public EmployeeDetailsDto(Long id, String name, String surname, LocalDateTime birthday, Boolean gender,
                               String email, String phone, String imageUrl, Boolean isExternal,
                               Integer jobTitleId, Integer officeRoomID, Integer companyId) {
-        Id = id;
-        Name = name;
-        Surname = surname;
-        Birthday = birthday;
-        Gender = gender;
-        Email = email;
-        Phone = phone;
-        ImageUrl = imageUrl;
-        IsExternal = isExternal;
-        JobTitleId = jobTitleId;
-        OfficeRoomID = officeRoomID;
-        CompanyId = companyId;
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.birthday = birthday;
+        this.gender = gender;
+        this.email = email;
+        this.phone = phone;
+        this.imageUrl = imageUrl;
+        this.isExternal = isExternal;
+        this.jobTitleId = jobTitleId;
+        this.officeRoomID = officeRoomID;
+        this.companyId = companyId;
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getSurname() {
-        return Surname;
+        return surname;
     }
 
     public void setSurname(String surname) {
-        Surname = surname;
+        this.surname = surname;
     }
 
     public LocalDateTime getBirthday() {
-        return Birthday;
+        return birthday;
     }
 
     public void setBirthday(LocalDateTime birthday) {
-        Birthday = birthday;
+        this.birthday = birthday;
     }
 
     public Boolean getGender() {
-        return Gender;
+        return gender;
     }
 
     public void setGender(Boolean gender) {
-        Gender = gender;
+        this.gender = gender;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
 
     public String getPhone() {
-        return Phone;
+        return phone;
     }
 
     public void setPhone(String phone) {
-        Phone = phone;
+        this.phone = phone;
     }
 
     public String getImageUrl() {
-        return ImageUrl;
+        return imageUrl;
     }
 
     public void setImageUrl(String imageUrl) {
-        ImageUrl = imageUrl;
+        this.imageUrl = imageUrl;
     }
 
     public Boolean getExternal() {
-        return IsExternal;
+        return isExternal;
     }
 
     public void setExternal(Boolean external) {
-        IsExternal = external;
+        isExternal = external;
     }
 
     public Integer getJobTitleId() {
-        return JobTitleId;
+        return jobTitleId;
     }
 
     public void setJobTitleId(Integer jobTitleId) {
-        JobTitleId = jobTitleId;
+        this.jobTitleId = jobTitleId;
     }
 
     public Integer getOfficeRoomID() {
-        return OfficeRoomID;
+        return officeRoomID;
     }
 
     public void setOfficeRoomID(Integer officeRoomID) {
-        OfficeRoomID = officeRoomID;
+        this.officeRoomID = officeRoomID;
     }
 
     public Integer getCompanyId() {
-        return CompanyId;
+        return companyId;
     }
 
     public void setCompanyId(Integer companyId) {
-        CompanyId = companyId;
+        this.companyId = companyId;
     }
 
 }

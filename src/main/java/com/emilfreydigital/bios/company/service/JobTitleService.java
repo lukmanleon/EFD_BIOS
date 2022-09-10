@@ -13,8 +13,13 @@ import java.util.List;
 @Service
 public class JobTitleService {
 
+
+    private final JobTitleRepository jobTitleRepository;
+
     @Autowired
-    JobTitleRepository jobTitleRepository;
+    public JobTitleService(JobTitleRepository jobTitleRepository) {
+        this.jobTitleRepository = jobTitleRepository;
+    }
 
     public List<JobTitleDto> getAll() {
         List<JobTitle> allTitles = jobTitleRepository.findAll();

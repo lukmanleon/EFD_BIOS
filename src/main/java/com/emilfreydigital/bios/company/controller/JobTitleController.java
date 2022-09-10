@@ -10,16 +10,18 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/bios/jobtitle")
+@RequestMapping(path = "api/v1/bios/jobtitle")
 public class JobTitleController {
+    private final JobTitleService jobTitleService;
 
     @Autowired
-    JobTitleService jobTitleService;
+    public JobTitleController(JobTitleService jobTitleService) {
+        this.jobTitleService = jobTitleService;
+    }
 
     @GetMapping
     public List<JobTitleDto> company() {
         return jobTitleService.getAll();
     }
-
 
 }

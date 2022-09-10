@@ -10,16 +10,18 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/bios/teamemployee")
+@RequestMapping(path = "api/v1/bios/teamemployee")
 public class TeamEmployeeController {
+    private final TeamEmployeeService teamEmployeeService;
 
     @Autowired
-    TeamEmployeeService teamEmployeeService;
+    public TeamEmployeeController(TeamEmployeeService teamEmployeeService) {
+        this.teamEmployeeService = teamEmployeeService;
+    }
 
     @GetMapping
     public List<TeamEmployee> company() {
         return teamEmployeeService.getAll();
     }
-
 
 }

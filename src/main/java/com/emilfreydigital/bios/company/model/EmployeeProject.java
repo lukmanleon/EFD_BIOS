@@ -11,69 +11,67 @@ public class EmployeeProject {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
 
     @NotNull
     @Column(name = "employee_id")
-    private Integer EmployeeId;
+    private Integer employeeId;
     @NotNull
     @Column(name = "project_id")
-    private Integer ProjectId;
+    private Integer projectId;
     @NotNull
     @Column(name = "date_created")
-    private LocalDateTime DateCreated;
+    private LocalDateTime dateCreated;
     @NotNull
     @Column(name = "date_modified")
-    private LocalDateTime DateModified;
+    private LocalDateTime dateModified;
 
-    public EmployeeProject() {
-    }
 
     public EmployeeProject(Long id, Integer employeeId, Integer projectId, LocalDateTime dateCreated, LocalDateTime dateModified) {
-        Id = id;
-        EmployeeId = employeeId;
-        ProjectId = projectId;
-        DateCreated = dateCreated;
-        DateModified = dateModified;
+        this.id = id;
+        this.employeeId = employeeId;
+        this.projectId = projectId;
+        this.dateCreated = dateCreated;
+        this.dateModified = dateModified;
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
     }
 
     public Integer getEmployeeId() {
-        return EmployeeId;
+        return employeeId;
     }
 
     public void setEmployeeId(Integer employeeId) {
-        EmployeeId = employeeId;
+        this.employeeId = employeeId;
     }
 
     public Integer getProjectId() {
-        return ProjectId;
+        return projectId;
     }
 
     public void setProjectId(Integer projectId) {
-        ProjectId = projectId;
+        this.projectId = projectId;
     }
 
     public LocalDateTime getDateCreated() {
-        return DateCreated;
+        return dateCreated;
     }
 
     public void setDateCreated(LocalDateTime dateCreated) {
-        DateCreated = dateCreated;
+        this.dateCreated = dateCreated;
     }
 
     public LocalDateTime getDateModified() {
-        return DateModified;
+        return dateModified;
     }
 
     public void setDateModified(LocalDateTime dateModified) {
-        DateModified = dateModified;
+        this.dateModified = dateModified;
     }
 }

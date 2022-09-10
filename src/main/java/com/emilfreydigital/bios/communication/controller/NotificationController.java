@@ -10,11 +10,15 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/bios/notifications")
+@RequestMapping(path = "api/v1/bios/notifications")
 public class NotificationController {
 
+    private final NotificationService notificationService;
+
     @Autowired
-    NotificationService notificationService;
+    public NotificationController(NotificationService notificationService) {
+        this.notificationService = notificationService;
+    }
 
     @GetMapping
     public List<Notification> rooms() {

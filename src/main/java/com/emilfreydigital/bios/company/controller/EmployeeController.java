@@ -12,11 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/bios/employee")
+@RequestMapping(path = "api/v1/bios/employee")
 public class EmployeeController {
+    private final EmployeeService employeeService;
 
     @Autowired
-    EmployeeService employeeService;
+    public EmployeeController(EmployeeService employeeService) {
+        this.employeeService = employeeService;
+    }
 
     @GetMapping
     public List<EmployeeDto> getEmployees() {
@@ -32,6 +35,5 @@ public class EmployeeController {
     public EmployeeDetailsDto getEmployeeById(@PathVariable(value = "id") Long id) {
         return employeeService.getEmployeeById(id);
     }
-
 
 }

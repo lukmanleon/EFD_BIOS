@@ -10,14 +10,19 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/bios/config")
+@RequestMapping(path = "api/v1/bios/config")
 public class ConfigController {
 
+    private final ConfigService configService;
+
     @Autowired
-    ConfigService configService;
+    public ConfigController(ConfigService configService) {
+        this.configService = configService;
+    }
+
 
     @GetMapping
-    public List<Config> rooms() {
+    public List<Config> configs() {
         return configService.getAll();
     }
 }
