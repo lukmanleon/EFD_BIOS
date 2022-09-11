@@ -17,10 +17,12 @@ import java.util.Optional;
 public class EmployeeService {
 
     private final EmployeeRepository employeeRepository;
+    private final EmployeeConverter employeeConverter;
 
     @Autowired
-    public EmployeeService(EmployeeRepository employeeRepository) {
+    public EmployeeService(EmployeeRepository employeeRepository, EmployeeConverter employeeConverter) {
         this.employeeRepository = employeeRepository;
+        this.employeeConverter = employeeConverter;
     }
 
     public List<EmployeeDto> getAll() {
@@ -30,7 +32,7 @@ public class EmployeeService {
         if (!(allEmployees == null) && !(allEmployees.isEmpty())) {
             EmployeeDto temporaryDto = null;
             for (Employee e : allEmployees) {
-                temporaryDto = EmployeeConverter.toDto(e);
+                temporaryDto = employeeConverter.convertFromEntity(e);
                 if (employeeDtoList != null) {
                     if (!employeeDtoList.contains(temporaryDto)) {
                         employeeDtoList.add(temporaryDto);
@@ -49,7 +51,7 @@ public class EmployeeService {
         if (!searchedEmployee.isPresent()) {
             throw new EntityNotFoundException();
         }
-        return EmployeeConverter.toDetailedDto(searchedEmployee.get());
+        return employeeConverter.convertToDetailedDto(searchedEmployee.get());
     }
 
 

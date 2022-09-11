@@ -15,10 +15,12 @@ public class JobTitleService {
 
 
     private final JobTitleRepository jobTitleRepository;
+    private final JobTitleConverter jobTitleConverter;
 
     @Autowired
-    public JobTitleService(JobTitleRepository jobTitleRepository) {
+    public JobTitleService(JobTitleRepository jobTitleRepository, JobTitleConverter jobTitleConverter) {
         this.jobTitleRepository = jobTitleRepository;
+        this.jobTitleConverter = jobTitleConverter;
     }
 
     public List<JobTitleDto> getAll() {
@@ -28,7 +30,7 @@ public class JobTitleService {
         if (!(allTitles == null) && !(allTitles.isEmpty())) {
             JobTitleDto temporaryDto = null;
             for (JobTitle jt : allTitles) {
-                temporaryDto = JobTitleConverter.toDto(jt);
+                temporaryDto = jobTitleConverter.convertFromEntity(jt);
                 if (jobTitleDtoListDtoList != null) {
                     if (!jobTitleDtoListDtoList.contains(temporaryDto)) {
                         jobTitleDtoListDtoList.add(temporaryDto);

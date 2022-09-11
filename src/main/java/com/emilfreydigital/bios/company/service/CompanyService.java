@@ -14,10 +14,12 @@ import java.util.List;
 public class CompanyService {
 
     private final CompanyRepository companyRepository;
+    private final CompanyConverter companyConverter;
 
     @Autowired
-    public CompanyService(CompanyRepository companyRepository) {
+    public CompanyService(CompanyRepository companyRepository, CompanyConverter companyConverter) {
         this.companyRepository = companyRepository;
+        this.companyConverter = companyConverter;
     }
 
     public List<CompanyDto> getAll() {
@@ -27,7 +29,7 @@ public class CompanyService {
         if (!(allCompanies == null) && !(allCompanies.isEmpty())) {
             CompanyDto temporaryDto = null;
             for (Company c : allCompanies) {
-                temporaryDto = CompanyConverter.toDto(c);
+                temporaryDto = companyConverter.convertFromEntity(c);
                 if (companyDtoList != null) {
                     if (!companyDtoList.contains(temporaryDto)) {
                         companyDtoList.add(temporaryDto);

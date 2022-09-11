@@ -19,10 +19,12 @@ import java.util.Optional;
 public class TeamService {
 
     private final TeamRepository teamRepository;
+    private final TeamConverter teamConverter;
 
     @Autowired
-    public TeamService(TeamRepository teamRepository) {
+    public TeamService(TeamRepository teamRepository, TeamConverter teamConverter) {
         this.teamRepository = teamRepository;
+        this.teamConverter = teamConverter;
     }
 
     public List<TeamDto> getAll() {
@@ -32,7 +34,7 @@ public class TeamService {
         if (!(allTeams == null) && !(allTeams.isEmpty())) {
             TeamDto temporaryDto = null;
             for (Team t : allTeams) {
-                temporaryDto = TeamConverter.toDto(t);
+                temporaryDto = teamConverter.convertFromEntity(t);
                 if (teamDtoList != null) {
                     if (!teamDtoList.contains(temporaryDto)) {
                         teamDtoList.add(temporaryDto);
@@ -51,7 +53,7 @@ public class TeamService {
         if (!searchedTeam.isPresent()) {
             throw new EntityNotFoundException();
         }
-        return TeamConverter.toDto(searchedTeam.get());
+        return teamConverter.convertFromEntity(searchedTeam.get());
     }
 
     public Team getTeamByCode(String teamCode) {

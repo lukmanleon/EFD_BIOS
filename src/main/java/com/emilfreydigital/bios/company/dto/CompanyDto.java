@@ -3,10 +3,8 @@ package com.emilfreydigital.bios.company.dto;
 
 public class CompanyDto {
 
-
     private Long id;
     private String name;
-
 
     public CompanyDto() {
     }

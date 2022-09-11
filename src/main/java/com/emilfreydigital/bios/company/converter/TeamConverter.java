@@ -1,28 +1,24 @@
 package com.emilfreydigital.bios.company.converter;
 
 
+import com.emilfreydigital.bios.Converter;
 import com.emilfreydigital.bios.company.dto.TeamDto;
 import com.emilfreydigital.bios.company.model.Team;
+import org.springframework.stereotype.Component;
 
-public final class TeamConverter {
+@Component
+public final class TeamConverter extends Converter<TeamDto, Team> {
 
-    public static TeamDto toDto(Team model) {
-        TeamDto dto = new TeamDto();
-        dto.setId(model.getId());
-        dto.setCode(model.getCode());
-        dto.setName(model.getName());
-        dto.setDescription(model.getDescription());
-
-        return dto;
+    public TeamConverter() {
+        super(TeamConverter::convertToEntity, TeamConverter::convertToDto);
     }
 
-    public static Team toModel(TeamDto dto) {
-        Team model = new Team();
-        model.setId(dto.getId());
-        model.setCode(dto.getCode());
-        model.setName(dto.getName());
-        model.setDescription(dto.getDescription());
-
-        return model;
+    private static TeamDto convertToDto(Team model) {
+        return new TeamDto(model.getId(), model.getCode(), model.getName(), model.getDescription());
     }
+
+    private static Team convertToEntity(TeamDto dto) {
+        return new Team(dto.getId(), dto.getCode(), dto.getName(), dto.getDescription(), null, null);
+    }
+
 }

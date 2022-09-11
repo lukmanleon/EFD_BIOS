@@ -1,24 +1,23 @@
 package com.emilfreydigital.bios.company.converter;
 
 
+import com.emilfreydigital.bios.Converter;
 import com.emilfreydigital.bios.company.dto.CompanyDto;
 import com.emilfreydigital.bios.company.model.Company;
+import org.springframework.stereotype.Component;
 
-public final class CompanyConverter {
-
-    public static CompanyDto toDto(Company model) {
-        CompanyDto dto = new CompanyDto();
-        dto.setId(model.getId());
-        dto.setName(model.getName());
-
-        return dto;
+@Component
+public final class CompanyConverter extends Converter<CompanyDto, Company> {
+    public CompanyConverter() {
+        super(CompanyConverter::convertToEntity, CompanyConverter::convertToDto);
     }
 
-    public static Company toModel(CompanyDto dto) {
-        Company model = new Company();
-        model.setId(dto.getId());
-        model.setName(dto.getName());
-
-        return model;
+    private static CompanyDto convertToDto(Company model) {
+        return new CompanyDto(model.getId(), model.getName());
     }
+
+    private static Company convertToEntity(CompanyDto dto) {
+        return new Company(dto.getId(), dto.getName(), null, null);
+    }
+
 }

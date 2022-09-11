@@ -17,10 +17,12 @@ public class ProjectService {
 
 
     private final ProjectRepository projectRepository;
+    private final ProjectConverter projectConverter;
 
     @Autowired
-    public ProjectService(ProjectRepository projectRepository) {
+    public ProjectService(ProjectRepository projectRepository, ProjectConverter projectConverter) {
         this.projectRepository = projectRepository;
+        this.projectConverter = projectConverter;
     }
 
     public List<ProjectDto> getAll() {
@@ -30,7 +32,7 @@ public class ProjectService {
         if (!(allProjects == null) && !(allProjects.isEmpty())) {
             ProjectDto temporaryDto = null;
             for (Project p : allProjects) {
-                temporaryDto = ProjectConverter.toDto(p);
+                temporaryDto = projectConverter.convertFromEntity(p);
                 if (projectDtoList != null) {
                     if (!projectDtoList.contains(temporaryDto)) {
                         projectDtoList.add(temporaryDto);
