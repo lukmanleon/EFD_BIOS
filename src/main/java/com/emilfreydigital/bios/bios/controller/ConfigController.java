@@ -1,6 +1,6 @@
 package com.emilfreydigital.bios.bios.controller;
 
-import com.emilfreydigital.bios.bios.model.Config;
+import com.emilfreydigital.bios.bios.dto.ConfigDto;
 import com.emilfreydigital.bios.bios.service.ConfigService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +22,7 @@ public class ConfigController {
 
 
     @GetMapping
-    public List<Config> configs() {
+    public List<ConfigDto> configs() {
         return configService.getAll();
     }
 }

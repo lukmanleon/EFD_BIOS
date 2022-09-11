@@ -1,6 +1,6 @@
 package com.emilfreydigital.bios.building.controller;
 
-import com.emilfreydigital.bios.building.model.Room;
+import com.emilfreydigital.bios.building.dto.RoomDto;
 import com.emilfreydigital.bios.building.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +20,7 @@ public class RoomController {
     }
 
     @GetMapping
-    public List<Room> rooms() {
+    public List<RoomDto> rooms() {
         return roomService.getAll();
     }
 }

@@ -1,6 +1,6 @@
 package com.emilfreydigital.bios.bios.controller;
 
-import com.emilfreydigital.bios.bios.model.Multilanguage;
+import com.emilfreydigital.bios.bios.dto.MultilanguageDto;
 import com.emilfreydigital.bios.bios.service.MultilanguageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +21,7 @@ public class MultilanguageController {
     }
 
     @GetMapping
-    public List<Multilanguage> configs() {
+    public List<MultilanguageDto> configs() {
         return multilanguageService.getAll();
     }
 }
