@@ -14,11 +14,11 @@ public final class RoomConverter extends Converter<RoomDto, Room> {
     }
 
     private static RoomDto convertToDto(Room model) {
-        return new RoomDto(model.getId(), model.getName(), model.getFloorNumber(), model.getRoomNumber(), model.getRoomTypeId());
+        return new RoomDto(model.getId(), model.getName(), model.getFloorNumber(), model.getRoomNumber(), null);
     }
 
     private static Room convertToEntity(RoomDto dto) {
-        return new Room(dto.getId(), dto.getName(), dto.getFloorNumber(), dto.getRoomNumber(), dto.getRoomTypeId(), null, null);
+        return new Room(dto.getId(), dto.getName(), dto.getFloorNumber(), dto.getRoomNumber(), null, null, null);
     }
 
 }

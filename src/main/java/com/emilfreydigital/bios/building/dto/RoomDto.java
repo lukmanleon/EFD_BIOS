@@ -6,19 +6,18 @@ public class RoomDto {
     private String name;
     private Integer floorNumber;
     private Integer roomNumber;
-    private Integer roomTypeId;
+    private RoomTypeDto roomTypeDto;
 
 
     public RoomDto() {
     }
 
-    public RoomDto(Long id, String name, Integer floorNumber, Integer roomNumber, Integer roomTypeId) {
+    public RoomDto(Long id, String name, Integer floorNumber, Integer roomNumber, RoomTypeDto roomTypeDto) {
         this.id = id;
         this.name = name;
         this.floorNumber = floorNumber;
         this.roomNumber = roomNumber;
-        this.roomTypeId = roomTypeId;
-
+        this.roomTypeDto = roomTypeDto;
     }
 
     public Long getId() {
@@ -53,12 +52,11 @@ public class RoomDto {
         this.roomNumber = roomNumber;
     }
 
-    public Integer getRoomTypeId() {
-        return roomTypeId;
+    public RoomTypeDto getRoomType() {
+        return roomTypeDto;
     }
 
-    public void setRoomTypeId(Integer roomTypeId) {
-        this.roomTypeId = roomTypeId;
+    public void setRoomType(RoomTypeDto roomTypeDto) {
+        this.roomTypeDto = roomTypeDto;
     }
-
 }
