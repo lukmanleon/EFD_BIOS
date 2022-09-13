@@ -1,6 +1,7 @@
 package com.emilfreydigital.bios.building.model;
 
 import com.sun.istack.NotNull;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -24,16 +25,12 @@ public class Room {
     @Column(name = "room_number")
     private Integer roomNumber;
 
-    //TODO Find out why eager fetching works and lazy doesn't
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "room_type_id")
+    @Nullable
+    //@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private RoomType roomType;
 
-    //    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-//    @JoinColumn(name = "room_type_id")
-//    @Nullable
-//    //@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-//    private RoomType roomType;
-
-    @Column(name = "room_type_id")
-    private Integer roomTypeId;
     @NotNull
     @Column(name = "date_created")
     private LocalDateTime dateCreated;
@@ -44,12 +41,12 @@ public class Room {
     public Room() {
     }
 
-    public Room(Long id, String name, Integer floorNumber, Integer roomNumber, Integer roomTypeId, LocalDateTime dateCreated, LocalDateTime dateModified) {
+    public Room(Long id, String name, Integer floorNumber, Integer roomNumber, @Nullable RoomType roomType, LocalDateTime dateCreated, LocalDateTime dateModified) {
         this.id = id;
         this.name = name;
         this.floorNumber = floorNumber;
         this.roomNumber = roomNumber;
-        this.roomTypeId = roomTypeId;
+        this.roomType = roomType;
         this.dateCreated = dateCreated;
         this.dateModified = dateModified;
     }
@@ -86,12 +83,13 @@ public class Room {
         this.roomNumber = roomNumber;
     }
 
-    public Integer getRoomTypeId() {
-        return roomTypeId;
+    @Nullable
+    public RoomType getRoomType() {
+        return roomType;
     }
 
-    public void setRoomTypeId(Integer roomTypeId) {
-        this.roomTypeId = roomTypeId;
+    public void setRoomType(@Nullable RoomType roomType) {
+        this.roomType = roomType;
     }
 
     public LocalDateTime getDateCreated() {
