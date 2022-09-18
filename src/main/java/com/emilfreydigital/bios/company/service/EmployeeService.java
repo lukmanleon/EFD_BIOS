@@ -46,6 +46,27 @@ public class EmployeeService {
         return employeeDtoList;
     }
 
+    public List<EmployeeDetailsDto> getAllForTable() {
+        List<Employee> allEmployees = employeeRepository.findAll();
+        List<EmployeeDetailsDto> employeeDtoList = null;
+
+        if (!(allEmployees == null) && !(allEmployees.isEmpty())) {
+            EmployeeDetailsDto temporaryDto = null;
+            for (Employee e : allEmployees) {
+                temporaryDto = employeeConverter.convertToDetailedDto(e);
+                if (employeeDtoList != null) {
+                    if (!employeeDtoList.contains(temporaryDto)) {
+                        employeeDtoList.add(temporaryDto);
+                    }
+                } else {
+                    employeeDtoList = new ArrayList<>();
+                    employeeDtoList.add(temporaryDto);
+                }
+            }
+        }
+        return employeeDtoList;
+    }
+
     public EmployeeDetailsDto getEmployeeById(Long Id) {
         Optional<Employee> searchedEmployee = employeeRepository.findById(Id);
         if (!searchedEmployee.isPresent()) {

@@ -27,8 +27,8 @@ public class EmployeeController {
     }
 
     @GetMapping(value = "/table")
-    public List<EmployeeDto> getTableEmployees() {
-        return employeeService.getAll();
+    public List<EmployeeDetailsDto> getTableEmployees() {
+        return employeeService.getAllForTable();
     }
 
     @GetMapping(value = "/{id}")

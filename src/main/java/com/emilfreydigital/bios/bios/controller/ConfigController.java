@@ -12,14 +12,12 @@ import java.util.List;
 @RestController
 @RequestMapping(path = "api/v1/bios/config")
 public class ConfigController {
-
     private final ConfigService configService;
 
     @Autowired
     public ConfigController(ConfigService configService) {
         this.configService = configService;
     }
-
 
     @GetMapping
     public List<ConfigDto> configs() {
