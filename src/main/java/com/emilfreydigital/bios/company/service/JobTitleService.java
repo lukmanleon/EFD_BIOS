@@ -4,6 +4,8 @@ import com.emilfreydigital.bios.company.converter.JobTitleConverter;
 import com.emilfreydigital.bios.company.dto.JobTitleDto;
 import com.emilfreydigital.bios.company.model.JobTitle;
 import com.emilfreydigital.bios.company.repository.JobTitleRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +14,7 @@ import java.util.List;
 
 @Service
 public class JobTitleService {
-
+    private Logger logger = LoggerFactory.getLogger(JobTitleService.class);
 
     private final JobTitleRepository jobTitleRepository;
     private final JobTitleConverter jobTitleConverter;

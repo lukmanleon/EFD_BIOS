@@ -4,6 +4,8 @@ import com.emilfreydigital.bios.company.converter.ProjectConverter;
 import com.emilfreydigital.bios.company.dto.ProjectDto;
 import com.emilfreydigital.bios.company.model.Project;
 import com.emilfreydigital.bios.company.repository.ProjectRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,8 +16,7 @@ import java.util.Optional;
 
 @Service
 public class ProjectService {
-
-
+    private Logger logger = LoggerFactory.getLogger(ProjectService.class);
     private final ProjectRepository projectRepository;
     private final ProjectConverter projectConverter;
 

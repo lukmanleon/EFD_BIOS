@@ -4,6 +4,8 @@ import com.emilfreydigital.bios.company.converter.TeamConverter;
 import com.emilfreydigital.bios.company.dto.TeamDto;
 import com.emilfreydigital.bios.company.model.Team;
 import com.emilfreydigital.bios.company.repository.TeamRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +19,7 @@ import java.util.Optional;
 
 @Service
 public class TeamService {
-
+    private Logger logger = LoggerFactory.getLogger(TeamService.class);
     private final TeamRepository teamRepository;
     private final TeamConverter teamConverter;
 

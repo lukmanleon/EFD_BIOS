@@ -49,7 +49,7 @@ public class ConfigService {
                     }
                 }
             }
-            logger.info("CONFIG: Returning app configuration from database.");
+            logger.info("CONFIG: Returning app configuration.");
             return configDtoList;
 
         } catch (Exception e) {
